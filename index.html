@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Fitness Calculator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <div class="container main-container">
+      <div class="row">
+        <div class="container col-3 input-container mx-1 my-5 px-5 py-4">
+          <form>
+            <div class="col">
+              <div class="col py-2">
+                <label for="height">Height</label>
+                <input type="number" />
+              </div>
+
+              <div class="col py-2">
+                <label for="weight">Weight</label>
+                <input type="number" min="0" />
+              </div>
+
+              <div class="col py-2">
+                <label for="age">Age</label>
+                <input type="number" />
+              </div>
+
+              <div class="col py-2">
+                <label for="gender">Gender</label>
+                <select name="gender" id="">
+                  <option
+                    value=""
+                    selected="true"
+                    disabled
+                    aria-required="true"
+                  >
+                    Choose gender
+                  </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+
+              <div class="col py-2">
+                <label for="activity-level">Activity level</label>
+                <select name="activity-level" id="">
+                  <option
+                    value=""
+                    selected="true"
+                    disabled
+                    aria-required="true"
+                  >
+                    Choose level
+                  </option>
+                  <option value="1.2">Sedentary</option>
+                  <option value="1.375">Lightly active</option>
+                  <option value="1.55">Moderately active</option>
+                  <option value="1.725">Very active</option>
+                  <option value="1.9">Extremely active</option>
+                </select>
+              </div>
+
+              <div class="col py-2">
+                <label for="calorie-distribution">Calorie distribution</label>
+                <select name="calorie-distribution" id="">
+                  <option value="" selected="true" disabled>Choose plan</option>
+                  <option value="">P30/C40/F30</option>
+                  <option value="">P40/C40/F20</option>
+                  <option value="">P40/C20/F40</option>
+                  <option value="">P30/C40/F30</option>
+                </select>
+              </div>
+
+              <div class="col py-2">
+                <label for="goal">Goal</label>
+                <select name="goal" id="">
+                  <option value="" selected="true" disabled>Choose goal</option>
+                  <option value="">Moderate loss(-0.50kg/week)</option>
+                  <option value="">Slow loss(-0.25kg/week)</option>
+                  <option value="">Maintain</option>
+                  <option value="">Slow gain(+0.25kg/week)</option>
+                  <option value="">Moderate (+0.50kg/week)</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col py-3">
+                  <button class="btn btn-outline-danger w-100">
+                    Calculate
+                  </button>
+                </div>
+
+                <div class="col py-3">
+                  <button class="btn btn-outline-danger w-100">Reset</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="container col results-container mx-1 my-5">
+          <div class="row mb-3">
+            <div class="col calories mx-2 p-3">
+              <h3>Calories</h3>
+              <p>2500</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col protein mx-2 p-3">
+              <div class="row">
+                <h3>Protein</h3>
+                <div class="col-8">
+                  <h4>200g</h4>
+                </div>
+                <div class="col">
+                  <h4>40%</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col carbs mx-2 p-3">
+              <h3>Carbohydrates</h3>
+              <p>300g</p>
+            </div>
+
+            <div class="col fats mx-2 p-3">
+              <h3>Fats</h3>
+              <p>100g</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
