@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Basic&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,14 +7,27 @@
 }
 
 body {
-  background-color: #292b4c;
+  background-color: #3a6351;
+  color: #000;
+  font-family: "Basic", sans-serif;
 }
-/* Containers */
 
-.input-container {
-  background-color: #343665;
+/* Footer */
+
+footer {
+  background-color: #393232;
+}
+
+i {
   color: #fff;
-  border-radius: 10px;
+}
+
+i:hover {
+  transform: scale(1.2);
+}
+
+img {
+  color: #fff;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -27,13 +42,15 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* Containers */
+p {
+  color: #fff;
+}
 
 input,
 select {
   height: 30px;
   width: 100%;
-  border: none;
+  border: 2px solid #000;
   border-radius: 5px;
   padding: 0 0.5rem;
 }
@@ -42,11 +59,30 @@ label {
   padding-bottom: 0.2rem;
 }
 
-.calories,
-.protein,
-.carbs,
-.fats {
-  background-color: #343665;
-  color: #fff;
+/* Containers */
+
+.containers,
+.input--container {
+  background-color: #e48257;
+  border: 2px solid #000;
   border-radius: 10px;
+}
+
+/* Containers */
+
+.btn {
+  background-color: #3a6351;
+}
+
+.btn:hover {
+  background-color: #000;
+}
+
+.btn,
+.btn:hover {
+  border: 2px solid #000;
+}
+
+.hidden {
+  display: none;
 }

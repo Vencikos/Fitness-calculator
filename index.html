@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
   <head>
     <meta charset="utf-8" />
@@ -10,6 +6,7 @@
     <title>Fitness Calculator</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,36 +14,37 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/1e9889ec18.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="/app.js" defer></script>
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
-
-    <div class="container main-container">
+    <div class="container main--container">
       <div class="row">
-        <div class="container col-3 input-container mx-1 my-5 px-5 py-4">
+        <!------------------------------------------------------------------>
+        <!---------------------- Input container --------------------------->
+        <!------------------------------------------------------------------>
+
+        <div class="container col-3 input--container mx-1 my-5 px-5 py-4">
           <form>
             <div class="col">
               <div class="col py-2">
                 <label for="height">Height</label>
-                <input type="number" />
+                <input type="number" placeholder="Enter height in cm" />
               </div>
-
+              <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="weight">Weight</label>
-                <input type="number" min="0" />
+                <input type="number" min="0" placeholder="Enter weight in kg" />
               </div>
-
+              <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="age">Age</label>
-                <input type="number" />
+                <input type="number" placeholder="Enter age" />
               </div>
-
+              <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="gender">Gender</label>
                 <select name="gender" id="">
@@ -62,7 +60,7 @@
                   <option value="female">Female</option>
                 </select>
               </div>
-
+              <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="activity-level">Activity level</label>
                 <select name="activity-level" id="">
@@ -81,7 +79,7 @@
                   <option value="1.9">Extremely active</option>
                 </select>
               </div>
-
+              <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="calorie-distribution">Calorie distribution</label>
                 <select name="calorie-distribution" id="">
@@ -92,7 +90,12 @@
                   <option value="">P30/C40/F30</option>
                 </select>
               </div>
-
+              <!------------------------------------------------------------------>
+              <div class="col py-2">
+                <label for="meals">Meals per day</label>
+                <input type="number" placeholder="Enter number of meals" />
+              </div>
+              <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="goal">Goal</label>
                 <select name="goal" id="">
@@ -104,6 +107,7 @@
                   <option value="">Moderate (+0.50kg/week)</option>
                 </select>
               </div>
+              <!------------------------------------------------------------------>
               <div class="row">
                 <div class="col py-3">
                   <button class="btn btn-danger w-100">Calculate</button>
@@ -116,96 +120,105 @@
             </div>
           </form>
         </div>
-        <div class="container col results-container mx-1 my-5">
+
+        <!------------------------------------------------------------------>
+        <!---------------------- Results container ------------------------->
+        <!------------------------------------------------------------------>
+
+        <div class="container col text-center results--container mx-1 my-5">
           <div class="row mb-3">
-            <div class="col-2 protein mx-2 p-3">
+            <div class="col-2 calories containers mx-2 p-3">
               <div class="col">
-                <h3>Calories</h3>
-                <div class="col-4">
+                <img src="/Images/calories.png" alt="" class="p-3" />
+                <h6 class="pb-2 sec--header">Calories</h6>
+                <div class="col">
                   <h5>2000kcal</h5>
                 </div>
-                <div class="col-4">
-                  <h5>1650kcal</h5>
-                </div>
-                <div class="col-4">
-                  <h5>40%</h5>
+                <div class="col">
+                  <h6>500kcal/meal</h6>
                 </div>
               </div>
             </div>
-
-            <div class="col-2 carbs mx-2 p-3">
-              <h4>Time to goal</h4>
+            <!------------------------------------------------------------------>
+            <div class="col-2 containers time--to--goal mx-2 p-3">
+              <img src="/Images/time.png" alt="" class="p-3" />
+              <h6 class="pb-2 sec--header">Time to goal</h6>
               <div class="col">
-                <div class="col-4">
-                  <h5>200g</h5>
+                <div class="col">
+                  <h5>Days</h5>
                 </div>
-                <div class="col-4">
-                  <h5>1650kcal</h5>
-                </div>
-                <div class="col-4">
-                  <h5>40%</h5>
+                <div class="col">
+                  <h6>Goal date</h6>
                 </div>
               </div>
             </div>
-
-            <div class="col fats mx-2 p-3">
-              <h3>Fats</h3>
+            <!------------------------------------------------------------------>
+            <div class="col-2 containers water--intake mx-2 p-3">
+              <img src="/Images/water.png" alt="" class="p-3" />
+              <h6 class="pb-2 sec--header">Water intake</h6>
               <div class="row">
-                <div class="col-4">
-                  <h5>200g</h5>
-                </div>
-                <div class="col-4">
-                  <h5>1650kcal</h5>
-                </div>
-                <div class="col-4">
-                  <h5>40%</h5>
+                <div class="col">
+                  <h5>200L</h5>
                 </div>
               </div>
             </div>
           </div>
-
+          <!------------------------------------------------------------------>
           <div class="row">
-            <div class="col protein mx-2 p-3">
-              <div class="row">
-                <h3>Protein</h3>
-                <div class="col-4">
+            <div class="col-2 containers protein mx-2 p-3">
+              <div class="col">
+                <img src="/Images/protein.png" alt="" class="p-3" />
+                <h6 class="pb-2 sec--header">Protein</h6>
+
+                <div class="col">
                   <h5>200g</h5>
                 </div>
-                <div class="col-4">
-                  <h5>1650kcal</h5>
+                <div class="col">
+                  <h6>200g/meal</h6>
                 </div>
-                <div class="col-4">
-                  <h5>40%</h5>
+                <div class="col">
+                  <h6>1650kcal</h6>
+                </div>
+                <div class="col">
+                  <h6>40%</h6>
                 </div>
               </div>
             </div>
-
-            <div class="col carbs mx-2 p-3">
-              <h3>Carbohydrates</h3>
-              <div class="row">
-                <div class="col-4">
+            <!------------------------------------------------------------------>
+            <div class="col-2 containers carbs mx-2 p-3">
+              <img src="/Images/carbs.png" alt="" class="p-3" />
+              <h6 class="pb-2 sec--header">Carbs</h6>
+              <div class="col">
+                <div class="col">
                   <h5>200g</h5>
                 </div>
-                <div class="col-4">
-                  <h5>1650kcal</h5>
+                <div class="col">
+                  <h6>200g/meal</h6>
                 </div>
-                <div class="col-4">
-                  <h5>40%</h5>
+                <div class="col">
+                  <h6>1650kcal</h6>
+                </div>
+                <div class="col">
+                  <h6>40%</h6>
                 </div>
               </div>
             </div>
-
-            <div class="col fats mx-2 p-3">
-              <h3>Fats</h3>
-              <div class="row">
-                <div class="col-4">
+            <!------------------------------------------------------------------>
+            <div class="col-2 containers fats mx-2 p-3">
+              <img src="/Images/fat.png" alt="" class="p-3" />
+              <h6 class="pb-2 sec--header">Fats</h6>
+              <div class="col">
+                <div class="col">
                   <h5>200g</h5>
                 </div>
-                <div class="col-4">
-                  <h5>1650kcal</h5>
+                <div class="col">
+                  <h6>200g/meal</h6>
                 </div>
-                <div class="col-4">
-                  <h5>40%</h5>
+                <div class="col">
+                  <h6>1650kcal</h6>
+                </div>
+                <div class="col">
+                  <h6>40%</h6>
                 </div>
               </div>
             </div>
@@ -214,6 +227,43 @@
       </div>
     </div>
 
+    <!------------------------------------------------------------------>
+    <!---------------------- Footer container ------------------------->
+    <!------------------------------------------------------------------>
+
+    <footer class="text-center">
+      <div class="col">
+        <div class="col p-4">
+          <a
+            href="https://www.facebook.com/venkostadinov"
+            class="p-3 my-2"
+            target="_blank"
+            ><i class="fab fa-facebook fa-2x" aria-hidden="true"></i
+          ></a>
+          <a href="https://github.com/Vencikos" class="p-3 my-2" target="_blank"
+            ><i class="fab fa-github fa-2x" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/vencislav-kostadinov-a4b0211b4/"
+            class="p-3 my-2"
+            target="_blank"
+            ><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i
+          ></a>
+        </div>
+        <!------------------------------------------------------------------>
+        <div class="col">
+          <p class="mb-1">
+            Copyright ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Vencislav Kostadinov
+          </p>
+          <p class="mb-0 pb-3">All Rights Reserved</p>
+        </div>
+      </div>
+    </footer>
+    <!------------------------------------------------------------------>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
