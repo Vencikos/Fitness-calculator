@@ -18,6 +18,14 @@ footer {
   background-color: #393232;
 }
 
+h5 {
+  font-size: 1.3rem;
+}
+
+hr {
+  color: #000;
+}
+
 i {
   color: #fff;
 }
@@ -42,10 +50,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-p {
-  color: #fff;
-}
-
 input,
 select {
   height: 30px;
@@ -59,6 +63,9 @@ label {
   padding-bottom: 0.2rem;
 }
 
+p {
+  color: #fff;
+}
 /* Containers */
 
 .containers,

@@ -28,32 +28,40 @@
         <!------------------------------------------------------------------>
 
         <div class="container col-3 input--container mx-1 my-5 px-5 py-4">
-          <form>
+          <form class="form" onsubmit="event.preventDefault()">
             <div class="col">
               <div class="col py-2">
                 <label for="height">Height</label>
-                <input type="number" placeholder="Enter height in cm" />
+                <input
+                  type="number"
+                  class="height--input"
+                  placeholder="Enter height in cm"
+                />
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="weight">Weight</label>
-                <input type="number" min="0" placeholder="Enter weight in kg" />
+                <input
+                  type="number"
+                  min="0"
+                  class="weight--input"
+                  placeholder="Enter weight in kg"
+                />
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="age">Age</label>
-                <input type="number" placeholder="Enter age" />
+                <input
+                  type="number"
+                  class="age--input"
+                  placeholder="Enter age"
+                />
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="gender">Gender</label>
-                <select name="gender" id="">
-                  <option
-                    value=""
-                    selected="true"
-                    disabled
-                    aria-required="true"
-                  >
+                <select class="gender--input" name="gender">
+                  <option value="" selected="true" disabled reqired>
                     Choose gender
                   </option>
                   <option value="male">Male</option>
@@ -63,7 +71,7 @@
               <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="activity-level">Activity level</label>
-                <select name="activity-level" id="">
+                <select class="activity--input" name="activity-level">
                   <option
                     value=""
                     selected="true"
@@ -81,40 +89,72 @@
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
+                <label for="age">Workouts per week</label>
+                <input
+                  type="number"
+                  class="workouts--input"
+                  placeholder="Enter number"
+                />
+              </div>
+              <!------------------------------------------------------------------>
+
+              <div class="col py-2">
                 <label for="calorie-distribution">Calorie distribution</label>
-                <select name="calorie-distribution" id="">
+                <select
+                  class="cal--distribution--input"
+                  name="calorie-distribution"
+                >
                   <option value="" selected="true" disabled>Choose plan</option>
-                  <option value="">P30/C40/F30</option>
-                  <option value="">P40/C40/F20</option>
-                  <option value="">P40/C20/F40</option>
-                  <option value="">P30/C40/F30</option>
+                  <option value="1">Balanced (P30/C40/F30)</option>
+                  <option value="2">High protein/Low fats (P40/C40/F20)</option>
+                  <option value="3">
+                    High protein/Low carbs (P40/C20/F40)
+                  </option>
+                  <option value="4">High fats/Low carbs (P30/C10/F60)</option>
                 </select>
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="meals">Meals per day</label>
-                <input type="number" placeholder="Enter number of meals" />
+                <input
+                  class="meals--input"
+                  type="number"
+                  placeholder="Enter number of meals"
+                />
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
                 <label for="goal">Goal</label>
-                <select name="goal" id="">
+                <select class="goal--input" name="goal">
                   <option value="" selected="true" disabled>Choose goal</option>
-                  <option value="">Moderate loss(-0.50kg/week)</option>
-                  <option value="">Slow loss(-0.25kg/week)</option>
-                  <option value="">Maintain</option>
-                  <option value="">Slow gain(+0.25kg/week)</option>
-                  <option value="">Moderate (+0.50kg/week)</option>
+                  <option value="0.8">Moderate loss(-0.50kg/week)</option>
+                  <option value="0.9">Slow loss(-0.25kg/week)</option>
+                  <option value="1">Maintain</option>
+                  <option value="1.1">Slow gain(+0.25kg/week)</option>
+                  <option value="1.2">Moderate (+0.50kg/week)</option>
                 </select>
+              </div>
+              <!------------------------------------------------------------------>
+              <div class="col py-2">
+                <label for="goal">Goal weight</label>
+                <input
+                  type="number"
+                  class="goal--weight--input"
+                  placeholder="Enter goal kg"
+                />
               </div>
               <!------------------------------------------------------------------>
               <div class="row">
                 <div class="col py-3">
-                  <button class="btn btn-danger w-100">Calculate</button>
+                  <button type="submit" class="btn btn-danger w-100 btn--calc">
+                    Calculate
+                  </button>
                 </div>
 
                 <div class="col py-3">
-                  <button class="btn btn-danger w-100">Reset</button>
+                  <button type="submit" class="btn btn-danger w-100 btn--reset">
+                    Reset
+                  </button>
                 </div>
               </div>
             </div>
@@ -129,106 +169,138 @@
           <div class="row mb-3">
             <div class="col-2 calories containers mx-2 p-3">
               <div class="col">
-                <img src="/Images/calories.png" alt="" class="p-3" />
-                <h6 class="pb-2 sec--header">Calories</h6>
+                <img src="/Images/calories.png" alt="calories" class="p-3" />
+                <h5 class="sec--header">Calories</h5>
+                <hr class="my-3" />
                 <div class="col">
-                  <h5>2000kcal</h5>
+                  <h5 class="kcal--result"></h5>
                 </div>
                 <div class="col">
-                  <h6>500kcal/meal</h6>
+                  <h6 class="kcal--meal--result"></h6>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------------------------------------>
+            <div class="col-2 calories containers mx-2 p-3">
+              <div class="col">
+                <img src="/Images/calories.png" alt="tdee" class="p-3" />
+                <h5 class="sec--header">TDEE</h5>
+                <hr class="my-3" />
+                <div class="col">
+                  <h5 class="tdee--result"></h5>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------------------------------------>
+            <div class="col-2 calories containers mx-2 p-3">
+              <div class="col">
+                <img src="/Images/calories.png" alt="bmi" class="p-3" />
+                <h5 class="sec--header">BMI</h5>
+                <hr class="my-3" />
+                <div class="col">
+                  <h5 class="bmi--result"></h5>
+                </div>
+
+                <div class="col">
+                  <h6 class="bmi--category"></h6>
                 </div>
               </div>
             </div>
             <!------------------------------------------------------------------>
             <div class="col-2 containers time--to--goal mx-2 p-3">
-              <img src="/Images/time.png" alt="" class="p-3" />
-              <h6 class="pb-2 sec--header">Time to goal</h6>
+              <img src="/Images/time.png" alt="goal" class="p-3" />
+              <h5 class="sec--header">Time to goal</h5>
+              <hr class="my-3" />
               <div class="col">
                 <div class="col">
-                  <h5>Days</h5>
+                  <h5 class="goal--days--result"></h5>
                 </div>
                 <div class="col">
-                  <h6>Goal date</h6>
-                </div>
-              </div>
-            </div>
-            <!------------------------------------------------------------------>
-            <div class="col-2 containers water--intake mx-2 p-3">
-              <img src="/Images/water.png" alt="" class="p-3" />
-              <h6 class="pb-2 sec--header">Water intake</h6>
-              <div class="row">
-                <div class="col">
-                  <h5>200L</h5>
+                  <h6 class="goal--date--result"></h6>
                 </div>
               </div>
             </div>
           </div>
           <!------------------------------------------------------------------>
-          <div class="row">
+          <div class="row mb-3">
             <div class="col-2 containers protein mx-2 p-3">
               <div class="col">
-                <img src="/Images/protein.png" alt="" class="p-3" />
-                <h6 class="pb-2 sec--header">Protein</h6>
-
+                <img src="/Images/protein.png" alt="protein" class="p-3" />
+                <h5 class="sec--header">Protein</h5>
+                <hr class="my-3" />
                 <div class="col">
-                  <h5>200g</h5>
+                  <h5 class="protein--result"></h5>
                 </div>
                 <div class="col">
-                  <h6>200g/meal</h6>
+                  <h6 class="protein--meal--result"></h6>
                 </div>
                 <div class="col">
-                  <h6>1650kcal</h6>
+                  <h6 class="protein--kcal--result"></h6>
                 </div>
                 <div class="col">
-                  <h6>40%</h6>
+                  <h6 class="protein--percent--result"></h6>
                 </div>
               </div>
             </div>
             <!------------------------------------------------------------------>
             <div class="col-2 containers carbs mx-2 p-3">
-              <img src="/Images/carbs.png" alt="" class="p-3" />
-              <h6 class="pb-2 sec--header">Carbs</h6>
+              <img src="/Images/carbs.png" alt="carbs" class="p-3" />
+              <h5 class="sec--header">Carbs</h5>
+              <hr class="my-3" />
               <div class="col">
                 <div class="col">
-                  <h5>200g</h5>
+                  <h5 class="carbs--result"></h5>
                 </div>
                 <div class="col">
-                  <h6>200g/meal</h6>
+                  <h6 class="carbs--meal--result"></h6>
                 </div>
                 <div class="col">
-                  <h6>1650kcal</h6>
+                  <h6 class="carbs--kcal--result"></h6>
                 </div>
                 <div class="col">
-                  <h6>40%</h6>
+                  <h6 class="carbs--percent--result"></h6>
                 </div>
               </div>
             </div>
             <!------------------------------------------------------------------>
             <div class="col-2 containers fats mx-2 p-3">
-              <img src="/Images/fat.png" alt="" class="p-3" />
-              <h6 class="pb-2 sec--header">Fats</h6>
+              <img src="/Images/fat.png" alt="fats" class="p-3" />
+              <h5 class="sec--header">Fats</h5>
+              <hr class="my-3" />
               <div class="col">
                 <div class="col">
-                  <h5>200g</h5>
+                  <h5 class="fats--result"></h5>
                 </div>
                 <div class="col">
-                  <h6>200g/meal</h6>
+                  <h6 class="fats--meal--result"></h6>
                 </div>
                 <div class="col">
-                  <h6>1650kcal</h6>
+                  <h6 class="fats--kcal--result"></h6>
                 </div>
                 <div class="col">
-                  <h6>40%</h6>
+                  <h6 class="fats--percent--result"></h6>
                 </div>
               </div>
             </div>
+            <!------------------------------------------------------------------>
+            <div class="col-2 containers water--intake mx-2 p-3">
+              <img src="/Images/water.png" alt="water" class="p-3" />
+              <h5 class="sec--header">Water intake</h5>
+              <hr class="my-3" />
+              <div class="row">
+                <div class="col">
+                  <h5 class="water--intake--result"></h5>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------------------------------------>
           </div>
         </div>
       </div>
     </div>
 
     <!------------------------------------------------------------------>
-    <!---------------------- Footer container ------------------------->
+    <!---------------------- Footer container -------------------------->
     <!------------------------------------------------------------------>
 
     <footer class="text-center">
@@ -236,16 +308,16 @@
         <div class="col p-4">
           <a
             href="https://www.facebook.com/venkostadinov"
-            class="p-3 my-2"
+            class="p-3"
             target="_blank"
             ><i class="fab fa-facebook fa-2x" aria-hidden="true"></i
           ></a>
-          <a href="https://github.com/Vencikos" class="p-3 my-2" target="_blank"
+          <a href="https://github.com/Vencikos" class="p-3" target="_blank"
             ><i class="fab fa-github fa-2x" aria-hidden="true"></i
           ></a>
           <a
             href="https://www.linkedin.com/in/vencislav-kostadinov-a4b0211b4/"
-            class="p-3 my-2"
+            class="p-3"
             target="_blank"
             ><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i
           ></a>
@@ -264,10 +336,15 @@
       </div>
     </footer>
     <!------------------------------------------------------------------>
+
+    <!------------------------------------------------------------------>
+    <!---------------------- Scripts container ------------------------->
+    <!------------------------------------------------------------------>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <!------------------------------------------------------------------>
   </body>
 </html>
