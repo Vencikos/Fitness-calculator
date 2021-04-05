@@ -212,3 +212,5 @@ document.querySelector(".btn--reset").addEventListener("click", function () {
   fatsKcalResult.textContent = "";
   fatsPercentResult.textContent = "";
 });
+
+//TODO Validation

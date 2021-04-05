@@ -81,7 +81,9 @@ p {
   background-color: #3a6351;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:active,
+.btn:checked {
   background-color: #000;
 }
 
@@ -92,4 +94,18 @@ p {
 
 .hidden {
   display: none;
+}
+
+.opacity {
+  background: rgb(228, 130, 87, 0.8);
+}
+
+.bg-image {
+  background-image: url("Images/food.jpg");
+  height: 110vh;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  filter: blur(5px);
 }
