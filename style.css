@@ -51,7 +51,9 @@ input[type="number"] {
 }
 
 input,
-select {
+select,
+.form-select,
+.form-control {
   height: 30px;
   width: 100%;
   border: 2px solid #000;
@@ -66,19 +68,26 @@ label {
 p {
   color: #fff;
 }
+
 /* Containers */
 
 .containers,
 .input--container {
-  background-color: #e48257;
+  background-color: rgb(197, 216, 109);
   border: 2px solid #000;
   border-radius: 10px;
 }
 
 /* Containers */
 
-.btn {
-  background-color: #3a6351;
+.bg-image {
+  background-image: url("Images/food.jpg");
+  height: 110vh;
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  filter: blur(5px);
 }
 
 .btn:hover,
@@ -92,20 +101,14 @@ p {
   border: 2px solid #000;
 }
 
+.form-label {
+  margin-bottom: 0;
+}
+
 .hidden {
   display: none;
 }
 
 .opacity {
-  background: rgb(228, 130, 87, 0.8);
-}
-
-.bg-image {
-  background-image: url("Images/food.jpg");
-  height: 110vh;
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  z-index: -1;
-  filter: blur(5px);
+  background: rgb(197, 216, 109, 0.8);
 }

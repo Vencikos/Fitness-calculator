@@ -14,6 +14,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script
       src="https://kit.fontawesome.com/1e9889ec18.js"
       crossorigin="anonymous"
@@ -35,43 +36,51 @@
         <div
           class="container col-3 input--container mx-1 my-5 px-5 py-4 opacity"
         >
-          <form class="form">
+          <form
+            class="form needs-validation"
+            novalidate
+            onsubmit="event.preventDefault()"
+          >
             <div class="col">
               <div class="col py-2 opacity-0">
-                <label for="height">Height</label>
+                <label for="height" class="form-label">Height</label>
                 <input
                   type="number"
-                  class="height--input is-invalid"
+                  class="height--input form-control"
                   placeholder="Enter height in cm"
                   required
                 />
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="weight">Weight</label>
+                <label for="weight" class="form-label">Weight</label>
                 <input
                   type="number"
                   min="0"
-                  class="weight--input is-invalid"
+                  class="weight--input form-control"
                   placeholder="Enter weight in kg"
                   required
                 />
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="age">Age</label>
+                <label for="age" class="form-label">Age</label>
                 <input
                   type="number"
-                  class="age--input is-invalid"
+                  class="age--input form-control"
                   placeholder="Enter age"
                   required
                 />
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="gender">Gender</label>
-                <select class="gender--input is-invalid" name="gender">
-                  <option value="" selected="true" disabled reqired>
+                <label for="gender" class="form-label">Gender</label>
+                <select
+                  class="gender--input form-select"
+                  name="gender"
+                  required
+                >
+                  <option value="" selected="true" disabled>
                     Choose gender
                   </option>
                   <option value="male">Male</option>
@@ -80,18 +89,15 @@
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="activity-level">Activity level</label>
+                <label for="activity-level" class="form-label"
+                  >Activity level</label
+                >
                 <select
-                  class="activity--input is-invalid"
+                  class="activity--input form-select"
                   name="activity-level"
                   required
                 >
-                  <option
-                    value=""
-                    selected="true"
-                    disabled
-                    aria-required="true"
-                  >
+                  <option value="" selected="true" disabled>
                     Choose level
                   </option>
                   <option value="1.2">Sedentary</option>
@@ -103,10 +109,10 @@
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="age">Workouts per week</label>
+                <label for="age" class="form-label">Workouts per week</label>
                 <input
                   type="number"
-                  class="workouts--input is-invalid"
+                  class="workouts--input form-control"
                   placeholder="Enter number"
                   required
                 />
@@ -114,9 +120,11 @@
               <!------------------------------------------------------------------>
 
               <div class="col py-2">
-                <label for="calorie-distribution">Calorie distribution</label>
+                <label for="calorie-distribution" class="form-label"
+                  >Calorie distribution</label
+                >
                 <select
-                  class="cal--distribution--input is-invalid"
+                  class="cal--distribution--input form-select"
                   name="calorie-distribution"
                   required
                 >
@@ -131,9 +139,9 @@
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="meals">Meals per day</label>
+                <label for="meals" class="form-label">Meals per day</label>
                 <input
-                  class="meals--input is-invalid"
+                  class="meals--input form-control"
                   type="number"
                   placeholder="Enter number of meals"
                   required
@@ -141,8 +149,8 @@
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="goal">Goal</label>
-                <select class="goal--input is-invalid" name="goal" required>
+                <label for="goal" class="form-label">Goal</label>
+                <select class="goal--input form-select" name="goal" required>
                   <option value="" selected="true" disabled>Choose goal</option>
                   <option value="0.8">Moderate loss(-0.50kg/week)</option>
                   <option value="0.9">Slow loss(-0.25kg/week)</option>
@@ -153,10 +161,10 @@
               </div>
               <!------------------------------------------------------------------>
               <div class="col py-2">
-                <label for="goal">Goal weight</label>
+                <label for="goal" class="form-label">Goal weight</label>
                 <input
                   type="number"
-                  class="goal--weight--input is-invalid"
+                  class="goal--weight--input form-control"
                   placeholder="Enter goal kg"
                   required
                 />
@@ -170,7 +178,7 @@
                 </div>
 
                 <div class="col py-3">
-                  <button type="submit" class="btn btn-danger w-100 btn--reset">
+                  <button type="reset" class="btn btn-danger w-100 btn--reset">
                     Reset
                   </button>
                 </div>
@@ -185,7 +193,11 @@
 
         <div class="container col text-center results--container mx-1 my-5">
           <div class="row mb-3">
-            <div class="col-2 calories containers mx-2 p-3">
+            <div
+              class="col-2 calories containers hidden mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <div class="col">
                 <img src="/Images/calories.png" alt="calories" class="p-3" />
                 <h5 class="sec--header">Calories</h5>
@@ -199,7 +211,11 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div class="col-2 calories containers opacity mx-2 p-3">
+            <div
+              class="col-2 calories containers hidden opacity mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <div class="col">
                 <img src="/Images/calories.png" alt="tdee" class="p-3" />
                 <h5 class="sec--header">TDEE</h5>
@@ -210,7 +226,11 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div class="col-2 calories containers opacity mx-2 p-3">
+            <div
+              class="col-2 calories containers hidden opacity mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <div class="col">
                 <img src="/Images/calories.png" alt="bmi" class="p-3" />
                 <h5 class="sec--header">BMI</h5>
@@ -225,7 +245,11 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div class="col-2 containers time--to--goal opacity mx-2 p-3">
+            <div
+              class="col-2 containers hidden time--to--goal opacity mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <img src="/Images/time.png" alt="goal" class="p-3" />
               <h5 class="sec--header">Time to goal</h5>
               <hr class="my-3" />
@@ -241,7 +265,11 @@
           </div>
           <!------------------------------------------------------------------>
           <div class="row mb-3">
-            <div class="col-2 containers protein opacity mx-2 p-3">
+            <div
+              class="col-2 containers hidden protein opacity mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <div class="col">
                 <img src="/Images/protein.png" alt="protein" class="p-3" />
                 <h5 class="sec--header">Protein</h5>
@@ -261,7 +289,11 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div class="col-2 containers carbs opacity mx-2 p-3">
+            <div
+              class="col-2 containers hidden carbs opacity mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <img src="/Images/carbs.png" alt="carbs" class="p-3" />
               <h5 class="sec--header">Carbs</h5>
               <hr class="my-3" />
@@ -281,7 +313,11 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div class="col-2 containers fats opacity mx-2 p-3">
+            <div
+              class="col-2 containers hidden fats opacity mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <img src="/Images/fat.png" alt="fats" class="p-3" />
               <h5 class="sec--header">Fats</h5>
               <hr class="my-3" />
@@ -301,7 +337,11 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div class="col-2 containers water--intake opacity mx-2 p-3">
+            <div
+              class="col-2 containers hidden water--intake opacity mx-2 p-3"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <img src="/Images/water.png" alt="water" class="p-3" />
               <h5 class="sec--header">Water intake</h5>
               <hr class="my-3" />
@@ -362,6 +402,10 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <!------------------------------------------------------------------>
   </body>
 </html>

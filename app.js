@@ -44,6 +44,9 @@ const fatsPerMealResult = document.querySelector(".fats--meal--result");
 const fatsKcalResult = document.querySelector(".fats--kcal--result");
 const fatsPercentResult = document.querySelector(".fats--percent--result");
 
+const inputFieldsAll = document.querySelectorAll(".form-control");
+const selectFieldsAll = document.querySelectorAll(".form-select");
+const resultContainersAll = document.querySelectorAll(".containers");
 //////////////////////////////////////////////////////////////
 ///////////////////// Button variables ///////////////////////
 //////////////////////////////////////////////////////////////
@@ -189,6 +192,9 @@ document.querySelector(".btn--calc").addEventListener("click", function () {
   bmiLevel();
   calcMicronutrients();
   waterIntake();
+  resultContainersAll.forEach((container) =>
+    container.classList.remove("hidden")
+  );
 });
 
 document.querySelector(".btn--reset").addEventListener("click", function () {
@@ -211,6 +217,29 @@ document.querySelector(".btn--reset").addEventListener("click", function () {
   fatsPerMealResult.textContent = "";
   fatsKcalResult.textContent = "";
   fatsPercentResult.textContent = "";
+  resultContainersAll.forEach((container) => container.classList.add("hidden"));
+  location.reload();
 });
 
 //TODO Validation
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();
