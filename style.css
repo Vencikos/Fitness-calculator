@@ -80,6 +80,20 @@ p {
 
 /* Containers */
 
+@keyframes animate--in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation--in {
+  animation: animate--in 1s linear;
+}
+
 .bg-image {
   background-image: url("Images/food.jpg");
   height: 110vh;
@@ -106,7 +120,7 @@ p {
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
 }
 
 .opacity {

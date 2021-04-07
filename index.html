@@ -14,13 +14,12 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <script
       src="https://kit.fontawesome.com/1e9889ec18.js"
       crossorigin="anonymous"
     ></script>
     <script src="/app.js" defer></script>
-    <script src="/validation.js"></script>
   </head>
   <body>
     <!-- Background image -->
@@ -42,7 +41,7 @@
             onsubmit="event.preventDefault()"
           >
             <div class="col">
-              <div class="col py-2 opacity-0">
+              <div class="col py-1 opacity-0">
                 <label for="height" class="form-label">Height</label>
                 <input
                   type="number"
@@ -52,7 +51,7 @@
                 />
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="weight" class="form-label">Weight</label>
                 <input
                   type="number"
@@ -63,7 +62,7 @@
                 />
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="age" class="form-label">Age</label>
                 <input
                   type="number"
@@ -73,7 +72,7 @@
                 />
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="gender" class="form-label">Gender</label>
                 <select
                   class="gender--input form-select"
@@ -88,7 +87,7 @@
                 </select>
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="activity-level" class="form-label"
                   >Activity level</label
                 >
@@ -108,7 +107,7 @@
                 </select>
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="age" class="form-label">Workouts per week</label>
                 <input
                   type="number"
@@ -119,7 +118,7 @@
               </div>
               <!------------------------------------------------------------------>
 
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="calorie-distribution" class="form-label"
                   >Calorie distribution</label
                 >
@@ -138,7 +137,7 @@
                 </select>
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="meals" class="form-label">Meals per day</label>
                 <input
                   class="meals--input form-control"
@@ -148,7 +147,7 @@
                 />
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col py-1">
                 <label for="goal" class="form-label">Goal</label>
                 <select class="goal--input form-select" name="goal" required>
                   <option value="" selected="true" disabled>Choose goal</option>
@@ -160,7 +159,7 @@
                 </select>
               </div>
               <!------------------------------------------------------------------>
-              <div class="col py-2">
+              <div class="col pt-1 pb-3">
                 <label for="goal" class="form-label">Goal weight</label>
                 <input
                   type="number"
@@ -193,11 +192,7 @@
 
         <div class="container col text-center results--container mx-1 my-5">
           <div class="row mb-3">
-            <div
-              class="col-2 calories containers hidden mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="col-2 calories containers hidden mx-2 p-3">
               <div class="col">
                 <img src="/Images/calories.png" alt="calories" class="p-3" />
                 <h5 class="sec--header">Calories</h5>
@@ -211,11 +206,7 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div
-              class="col-2 calories containers hidden opacity mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="col-2 calories containers hidden opacity mx-2 p-3">
               <div class="col">
                 <img src="/Images/calories.png" alt="tdee" class="p-3" />
                 <h5 class="sec--header">TDEE</h5>
@@ -226,11 +217,7 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div
-              class="col-2 calories containers hidden opacity mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="col-2 calories containers hidden opacity mx-2 p-3">
               <div class="col">
                 <img src="/Images/calories.png" alt="bmi" class="p-3" />
                 <h5 class="sec--header">BMI</h5>
@@ -247,8 +234,6 @@
             <!------------------------------------------------------------------>
             <div
               class="col-2 containers hidden time--to--goal opacity mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
             >
               <img src="/Images/time.png" alt="goal" class="p-3" />
               <h5 class="sec--header">Time to goal</h5>
@@ -265,11 +250,7 @@
           </div>
           <!------------------------------------------------------------------>
           <div class="row mb-3">
-            <div
-              class="col-2 containers hidden protein opacity mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="col-2 containers hidden protein opacity mx-2 p-3">
               <div class="col">
                 <img src="/Images/protein.png" alt="protein" class="p-3" />
                 <h5 class="sec--header">Protein</h5>
@@ -289,11 +270,7 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div
-              class="col-2 containers hidden carbs opacity mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="col-2 containers hidden carbs opacity mx-2 p-3">
               <img src="/Images/carbs.png" alt="carbs" class="p-3" />
               <h5 class="sec--header">Carbs</h5>
               <hr class="my-3" />
@@ -313,11 +290,7 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div
-              class="col-2 containers hidden fats opacity mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="col-2 containers hidden fats opacity mx-2 p-3">
               <img src="/Images/fat.png" alt="fats" class="p-3" />
               <h5 class="sec--header">Fats</h5>
               <hr class="my-3" />
@@ -337,11 +310,7 @@
               </div>
             </div>
             <!------------------------------------------------------------------>
-            <div
-              class="col-2 containers hidden water--intake opacity mx-2 p-3"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="col-2 containers hidden water--intake opacity mx-2 p-3">
               <img src="/Images/water.png" alt="water" class="p-3" />
               <h5 class="sec--header">Water intake</h5>
               <hr class="my-3" />
@@ -402,10 +371,7 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+
     <!------------------------------------------------------------------>
   </body>
 </html>

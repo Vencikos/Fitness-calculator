@@ -4,6 +4,7 @@
 //////////////////// Input variables /////////////////////////
 //////////////////////////////////////////////////////////////
 
+const inputContainer = document.querySelector(".input--container");
 const heightInput = document.querySelector(".height--input");
 const weightInput = document.querySelector(".weight--input");
 const ageInput = document.querySelector(".age--input");
@@ -192,9 +193,10 @@ document.querySelector(".btn--calc").addEventListener("click", function () {
   bmiLevel();
   calcMicronutrients();
   waterIntake();
-  resultContainersAll.forEach((container) =>
-    container.classList.remove("hidden")
-  );
+  resultContainersAll.forEach((container) => {
+    container.classList.add("animation--in");
+    container.classList.remove("hidden");
+  });
 });
 
 document.querySelector(".btn--reset").addEventListener("click", function () {
@@ -217,6 +219,7 @@ document.querySelector(".btn--reset").addEventListener("click", function () {
   fatsPerMealResult.textContent = "";
   fatsKcalResult.textContent = "";
   fatsPercentResult.textContent = "";
+
   resultContainersAll.forEach((container) => container.classList.add("hidden"));
   location.reload();
 });
