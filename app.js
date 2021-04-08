@@ -183,49 +183,6 @@ const calcMicronutrients = () => {
   fatsPercentResult.textContent = `${fatsPercent * 100}%`;
 };
 
-//////////////////////////////////////////////////////////////
-/////////////////////// Event handlers ///////////////////////
-//////////////////////////////////////////////////////////////
-
-document.querySelector(".btn--calc").addEventListener("click", function () {
-  calcKcal();
-  calcBmi();
-  bmiLevel();
-  calcMicronutrients();
-  waterIntake();
-  resultContainersAll.forEach((container) => {
-    container.classList.add("animation--in");
-    container.classList.remove("hidden");
-  });
-});
-
-document.querySelector(".btn--reset").addEventListener("click", function () {
-  document.querySelector("form").reset();
-  kcalResult.textContent = "";
-  kcalPerMealResult.textContent = "";
-  tdeeResult.textContent = "";
-  bmiResult.textContent = "";
-  bmiCategory.textContent = "";
-  waterIntakeResult.textContent = "";
-  proteinResult.textContent = "";
-  proteinPerMealResult.textContent = "";
-  proteinKcalResult.textContent = "";
-  proteinPercentResult.textContent = "";
-  carbsResult.textContent = "";
-  carbsPerMealResult.textContent = "";
-  carbsKcalResult.textContent = "";
-  carbsPercentResult.textContent = "";
-  fatsResult.textContent = "";
-  fatsPerMealResult.textContent = "";
-  fatsKcalResult.textContent = "";
-  fatsPercentResult.textContent = "";
-
-  resultContainersAll.forEach((container) => container.classList.add("hidden"));
-  location.reload();
-});
-
-//TODO Validation
-// Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll(".needs-validation");
@@ -246,3 +203,59 @@ document.querySelector(".btn--reset").addEventListener("click", function () {
     );
   });
 })();
+
+//////////////////////////////////////////////////////////////
+/////////////////////// Event handlers ///////////////////////
+//////////////////////////////////////////////////////////////
+
+document.querySelector(".btn--calc").addEventListener("click", function () {
+  if (
+    document.querySelectorAll(".form-select:valid").length < 4 ||
+    document.querySelectorAll(".form-control:valid").length < 6
+  ) {
+    alert("Please fill out all the required fields!");
+  } else {
+    resultContainersAll.forEach((container) => {
+      container.classList.remove("animation--out");
+      container.classList.add("animation--in");
+      container.classList.remove("hidden");
+    });
+    calcKcal();
+    calcBmi();
+    bmiLevel();
+    calcMicronutrients();
+    waterIntake();
+  }
+});
+
+document.querySelector(".btn--reset").addEventListener("click", function () {
+  document.querySelector("form").classList.remove("was-validated");
+  document.querySelector("form").reset();
+  resultContainersAll.forEach((container) => {
+    container.classList.remove("animation--in");
+    container.classList.add("animation--out");
+    setTimeout(() => {
+      kcalResult.textContent = "";
+      kcalPerMealResult.textContent = "";
+      tdeeResult.textContent = "";
+      bmiResult.textContent = "";
+      bmiCategory.textContent = "";
+      waterIntakeResult.textContent = "";
+      proteinResult.textContent = "";
+      proteinPerMealResult.textContent = "";
+      proteinKcalResult.textContent = "";
+      proteinPercentResult.textContent = "";
+      carbsResult.textContent = "";
+      carbsPerMealResult.textContent = "";
+      carbsKcalResult.textContent = "";
+      carbsPercentResult.textContent = "";
+      fatsResult.textContent = "";
+      fatsPerMealResult.textContent = "";
+      fatsKcalResult.textContent = "";
+      fatsPercentResult.textContent = "";
+    }, 1000);
+  });
+  resultContainersAll.forEach((container) => {
+    container.classList.add("hidden");
+  });
+});

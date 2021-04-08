@@ -45,8 +45,10 @@
                 <label for="height" class="form-label">Height</label>
                 <input
                   type="number"
+                  min="0"
                   class="height--input form-control"
                   placeholder="Enter height in cm"
+                  onkeypress="return event.charCode != 45"
                   required
                 />
               </div>
@@ -58,6 +60,7 @@
                   min="0"
                   class="weight--input form-control"
                   placeholder="Enter weight in kg"
+                  onkeypress="return event.charCode != 45"
                   required
                 />
               </div>
@@ -66,7 +69,9 @@
                 <label for="age" class="form-label">Age</label>
                 <input
                   type="number"
+                  min="0"
                   class="age--input form-control"
+                  onkeypress="return event.charCode != 45"
                   placeholder="Enter age"
                   required
                 />
@@ -111,8 +116,10 @@
                 <label for="age" class="form-label">Workouts per week</label>
                 <input
                   type="number"
+                  min="0"
                   class="workouts--input form-control"
                   placeholder="Enter number"
+                  onkeypress="return event.charCode != 45"
                   required
                 />
               </div>
@@ -140,9 +147,11 @@
               <div class="col py-1">
                 <label for="meals" class="form-label">Meals per day</label>
                 <input
+                  min="0"
                   class="meals--input form-control"
                   type="number"
                   placeholder="Enter number of meals"
+                  onkeypress="return event.charCode != 45"
                   required
                 />
               </div>
@@ -163,8 +172,10 @@
                 <label for="goal" class="form-label">Goal weight</label>
                 <input
                   type="number"
+                  min="0"
                   class="goal--weight--input form-control"
                   placeholder="Enter goal kg"
+                  onkeypress="return event.charCode != 45"
                   required
                 />
               </div>

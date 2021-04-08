@@ -12,8 +12,6 @@ body {
   font-family: "Basic", sans-serif;
 }
 
-/* Footer */
-
 footer {
   background-color: #393232;
 }
@@ -80,6 +78,8 @@ p {
 
 /* Containers */
 
+/* Animations */
+
 @keyframes animate--in {
   0% {
     opacity: 0;
@@ -91,8 +91,24 @@ p {
 }
 
 .animation--in {
-  animation: animate--in 1s linear;
+  animation: animate--in 0.2s linear;
 }
+
+@keyframes animate--out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.animation--out {
+  animation: animate--out 0.2s linear;
+}
+
+/* Animations */
 
 .bg-image {
   background-image: url("Images/food.jpg");
