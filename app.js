@@ -112,15 +112,37 @@ const bmiLevel = () => {
 ///////////////////////// Calc days //////////////////////////
 //////////////////////////////////////////////////////////////
 
-// const calcDays = () => {
-//   const goalPlan = () => {
-//     if
-//   };
-//   const days =
-//     Math.abs(+goalWeightInput.value - +weightInput.value) /
-//     (+goalInput.value / 7);
-//   return days;
-// };
+const calcDays = () => {
+  // Days
+
+  const goalValue = () => {
+    if (goalInput.value === "0.8" || goalInput.value === "1.2") return 0.5;
+    if (goalInput.value === "0.9" || goalInput.value === "1.1") return 0.25;
+  };
+  const days =
+    Math.abs(+goalWeightInput.value - +weightInput.value) / (+goalValue() / 7);
+
+  // Date
+
+  const dateInMs = new Date().getTime() + days * 86400000;
+  const targetDate = new Date(dateInMs);
+
+  timeToGoalDaysResult.textContent =
+    goalInput.value === "1" ? "0 days" : `${days} days`;
+  timeToGoalDateResult.textContent =
+    goalInput.value === "1"
+      ? `You maintain your current weight`
+      : `${
+          targetDate.getDay() < 10
+            ? "0" + targetDate.getDay()
+            : targetDate.getDay()
+        } / ${
+          targetDate.getMonth() + 1 < 10
+            ? "0" + (targetDate.getMonth() + 1)
+            : targetDate.getMonth() + 1
+        } / ${targetDate.getFullYear()}`;
+  return days;
+};
 
 //////////////////////////////////////////////////////////////
 ////////////////////// Water intake //////////////////////////
@@ -223,6 +245,7 @@ document.querySelector(".btn--calc").addEventListener("click", function () {
     calcKcal();
     calcBmi();
     bmiLevel();
+    calcDays();
     calcMicronutrients();
     waterIntake();
   }
@@ -259,3 +282,5 @@ document.querySelector(".btn--reset").addEventListener("click", function () {
     container.classList.add("hidden");
   });
 });
+
+// TODO Modal window with error message instead of alert
