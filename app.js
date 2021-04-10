@@ -133,14 +133,14 @@ const calcDays = () => {
     goalInput.value === "1"
       ? `You maintain your current weight`
       : `${
-          targetDate.getDay() < 10
-            ? "0" + targetDate.getDay()
-            : targetDate.getDay()
-        } / ${
+          targetDate.getDate() < 10
+            ? "0" + targetDate.getDate()
+            : targetDate.getDate()
+        }/${
           targetDate.getMonth() + 1 < 10
             ? "0" + (targetDate.getMonth() + 1)
             : targetDate.getMonth() + 1
-        } / ${targetDate.getFullYear()}`;
+        }/${targetDate.getFullYear()}`;
   return days;
 };
 
