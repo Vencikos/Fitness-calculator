@@ -230,12 +230,20 @@ const calcMicronutrients = () => {
 /////////////////////// Event handlers ///////////////////////
 //////////////////////////////////////////////////////////////
 
+const modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+const btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+
 document.querySelector(".btn--calc").addEventListener("click", function () {
   if (
     document.querySelectorAll(".form-select:valid").length < 4 ||
     document.querySelectorAll(".form-control:valid").length < 6
   ) {
-    alert("Please fill out all the required fields!");
+    modal.style.display = "block";
   } else {
     resultContainersAll.forEach((container) => {
       container.classList.remove("animation--out");
@@ -284,3 +292,16 @@ document.querySelector(".btn--reset").addEventListener("click", function () {
 });
 
 // TODO Modal window with error message instead of alert
+// Get the modal
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
