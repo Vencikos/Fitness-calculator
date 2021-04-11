@@ -48,12 +48,21 @@ const fatsPercentResult = document.querySelector(".fats--percent--result");
 const inputFieldsAll = document.querySelectorAll(".form-control");
 const selectFieldsAll = document.querySelectorAll(".form-select");
 const resultContainersAll = document.querySelectorAll(".containers");
+
 //////////////////////////////////////////////////////////////
 ///////////////////// Button variables ///////////////////////
 //////////////////////////////////////////////////////////////
 
 const btnCalc = document.querySelector(".btn--calc");
 const btnReset = document.querySelector(".btn--reset");
+
+//////////////////////////////////////////////////////////////
+////////////////// Modal window variables ////////////////////
+//////////////////////////////////////////////////////////////
+
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.getElementsByClassName("close")[0];
 
 //////////////////////////////////////////////////////////////
 /////////////////////// Functions ////////////////////////////
@@ -205,11 +214,13 @@ const calcMicronutrients = () => {
   fatsPercentResult.textContent = `${fatsPercent * 100}%`;
 };
 
+//////////////////////////////////////////////////////////////
+///////////////////// Form validation ////////////////////////
+//////////////////////////////////////////////////////////////
+
 (function () {
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll(".needs-validation");
 
-  // Loop over them and prevent submission
   Array.prototype.slice.call(forms).forEach(function (form) {
     form.addEventListener(
       "submit",
@@ -218,7 +229,6 @@ const calcMicronutrients = () => {
           event.preventDefault();
           event.stopPropagation();
         }
-
         form.classList.add("was-validated");
       },
       false
@@ -227,16 +237,24 @@ const calcMicronutrients = () => {
 })();
 
 //////////////////////////////////////////////////////////////
-/////////////////////// Event handlers ///////////////////////
+///////////////////////  Modal window ////////////////////////
 //////////////////////////////////////////////////////////////
 
-const modal = document.getElementById("myModal");
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
 
-// Get the button that opens the modal
-const btn = document.getElementById("myBtn");
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
 
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+//////////////////////////////////////////////////////////////
+/////////////////////// Event handlers ///////////////////////
+//////////////////////////////////////////////////////////////
 
 document.querySelector(".btn--calc").addEventListener("click", function () {
   if (
@@ -291,17 +309,4 @@ document.querySelector(".btn--reset").addEventListener("click", function () {
   });
 });
 
-// TODO Modal window with error message instead of alert
-// Get the modal
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
+// TODO Mobile responsive
